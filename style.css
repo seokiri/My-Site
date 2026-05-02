@@ -1,0 +1,314 @@
+/* 1. ПЕРЕМЕННЫЕ И ОСНОВА */
+:root {
+    --bg-light: #fff5f5;      /* Светлый фон */
+    --accent-pink: #d4a5a5;     
+    --accent-hover: #c08d8d;
+    --text-main: #4a4444;
+    --mint-glass: rgba(146, 239, 242, 0.34); /* Очень светлый мятный */
+    --mint-border: rgba(178, 235, 242, 0.5); /* Цвет рамки стекла */
+    --glass-shadow: rgba(212, 165, 165, 0.15);
+    --transition: all 0.8s ease-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fff5f5 0%, #f7e8e8 100%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* 2. НАВИГАЦИЯ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(254, 174, 174, 0.244);
+    border-bottom: 1px solid rgba(212, 165, 165, 0.2);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    opacity: 1;
+    color: var(--accent-blue);
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* 3. ГЛАВНЫЙ ЭКРАН (HERO) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    padding: 20px;
+}
+
+.hero-content {
+    padding: 60px;
+    max-width: 900px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Адаптивный размер */
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* ФИО одного цвета */
+.accent {
+    color: var(--text-main) !important;
+}
+
+/* 4. ОБЩИЕ СТИЛИ БЛОКОВ (GLASSMOPRHISM) */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.glass {
+    background: var(--mint-glass) !important; /* Принудительно мятный фон */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--mint-border) !important;
+    border-radius: 30px; /* Добавим легкое голубое свечение вместо серой тени */
+    box-shadow: 0 15px 35px rgba(0, 188, 212, 0.05);
+}
+
+.card {
+    padding: 40px;
+}
+
+.card-header i {
+    color: #3b6d75; /* Темно-мятный цвет для заголовков внутри блоков */
+}
+
+/* 5. КНОПКИ */
+.btn-glass {
+    display: inline-block;
+    padding: 14px 32px;
+    color: var(--text-main);
+    background: rgba(212, 165, 165, 0.1);
+    border: 1px solid var(--accent-pink);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+.btn-glass:hover {
+    background: var(--text-main);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 6. СЕТКА УСЛУГ И ПОДХОДА (БОЛИ/РЕШЕНИЯ) */
+.services-grid, .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.clean-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.clean-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.dot.blue { color: #a5d4b1; } /* Мягкий мятный вместо яркого зеленого */
+.dot { color: #e19595; }      /* Нежно-коралловый вместо красного */
+
+/* 7. КАРУСЕЛЬ ДИПЛОМОВ */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    border-radius: 28px;
+}
+
+.carousel-slide {
+    display: flex;
+    height: 100%;
+}
+
+.carousel-slide img {
+    min-width: 100%;
+    object-fit: contain;
+    padding: 30px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 10px 20px !important;
+}
+
+#prevBtn { left: 20px; }
+#nextBtn { right: 20px; }
+
+/* 8. ОБЪЕДИНЕННЫЙ БЛОК КОНТАКТОВ */
+.contact-box {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 40px;
+}
+
+.work-time {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-top: 40px; /* Увеличили с 20px до 40px */
+    display: block;   /* Гарантирует, что отступ сработает правильно */
+}
+
+.cta-text { font-size: 1.6rem; font-weight: 600; margin-bottom: 10px; }
+.cta-subtext { opacity: 0.7; margin-bottom: 30px; }
+
+/* 8. ГЛАВНАЯ КНОПКА (АНКЕТА) */
+.cta-button {
+    display: inline-block !important;
+    /* Большой отступ сверху, чтобы текст не "давил" */
+    margin-top: 50px !important; 
+    margin-bottom: 20px !important;
+    
+    padding: 18px 40px !important;
+    background: linear-gradient(135deg, #d4a5a5 0%, #c08d8d 100%) !important;
+    color: white !important;
+    
+    /* Убираем любые рамки и контуры полностью */
+    border: none !important; 
+    outline: none !important;
+    border-style: none !important;
+    
+    border-radius: 50px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: 0 10px 25px rgba(212, 165, 165, 0.4) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 30px rgba(212, 165, 165, 0.6) !important;
+    opacity: 0.9;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0,188, 212, 0.2), transparent);
+    margin: 40px auto;
+    width: 80%;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-btn { font-size: 0.9rem; padding: 10px 20px; }
+
+/* 9. АНИМАЦИЯ ПОЯВЛЕНИЯ (REVEAL) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: var(--transition);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 10. АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+    .services-grid, .approach-grid { grid-template-columns: 1fr; }
+    .navbar { padding: 15px 25px; }
+    .hero-content { padding: 20px; }
+    .carousel-container { height: 350px; }
+}
+
+.glass:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
