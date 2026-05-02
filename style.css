@@ -4,8 +4,8 @@
     --accent-pink: #d4a5a5;     
     --accent-hover: #c08d8d;
     --text-main: #4a4444;
-    --mint-glass: rgba(146, 239, 242, 0.34); /* Очень светлый мятный */
-    --mint-border: rgba(178, 235, 242, 0.5); /* Цвет рамки стекла */
+    --mint-glass: rgba(84, 245, 226, 0.244); /* Очень светлый мятный */
+    --mint-border: rgba(147, 249, 247, 0.413); /* Цвет рамки стекла */
     --glass-shadow: rgba(212, 165, 165, 0.15);
     --transition: all 0.8s ease-out;
 }
@@ -35,7 +35,7 @@ body {
     padding: 15px 50px;
     z-index: 1000;
     backdrop-filter: saturate(180%) blur(20px);
-    background: rgba(254, 174, 174, 0.244);
+    background: rgba(84, 245, 226, 0.244);
     border-bottom: 1px solid rgba(212, 165, 165, 0.2);
 }
 
@@ -52,18 +52,18 @@ body {
 }
 
 .nav-links li a {
-    color: var(--text-main);
+    color: #282322;
     text-decoration: none;
     margin-left: 30px;
     font-size: 14px;
-    font-weight: 500;
-    opacity: 0.7;
+    font-weight: 600;
+    opacity: 1;
     transition: 0.3s;
 }
 
 .nav-links li a:hover {
     opacity: 1;
-    color: var(--accent-blue);
+    color: var(--accent-pink);
 }
 
 .menu-toggle {
