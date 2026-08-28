@@ -500,3 +500,20 @@ h1 {
     font-size: 0.9rem;
     font-weight: 500;
 }
+
+/* Квадратная аватарка внутри glass-карточки */
+.hero-avatar {
+    width: 260px;
+    height: 260px;
+    border-radius: 16px; /* Легкое скругление углов, чтобы выглядело мягче */
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Тонкая элегантная рамка */
+    box-shadow: 0 6px 18px rgba(45, 52, 77, 0.1); /* Мягкая тень */
+    margin: 10px auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hero-avatar:hover {
+    transform: scale(1.03);
+}
